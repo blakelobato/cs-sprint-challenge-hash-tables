@@ -4,7 +4,25 @@ def intersection(arrays):
     """
     # Your code here
 
+    hash = {}
+    hash_compare = {}
+    hash_result = {}
+    result = []
+
+    for i in range(len(arrays[0])):
+        hash[arrays[0][i]] = arrays[0][i]
+
+    for i in range(1, len(arrays)):
+        for j in range(len(arrays[i])):
+            hash_compare[arrays[i][j]] = arrays[i][j]
+        hash_result = dict(hash.items() & hash_compare.items())
+        hash = hash_result
+
+    for key in hash_result:
+        result.append(key)
+
     return result
+
 
 
 if __name__ == "__main__":
